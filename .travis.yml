@@ -1,0 +1,17 @@
+language: python
+
+python:
+  - "3.7"
+
+env:
+  - LEVEL=MEDIUM CONFIDENCE=MEDIUM IGNORE=B303
+
+
+install:
+  - sudo apt-get update
+  - sudo apt-get install python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential
+  - pip3 install bandit
+
+script:
+  - ./bandit_precheck.py services
+
